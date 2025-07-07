@@ -1,3 +1,13 @@
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarn/install-state.gz
+.yarnrc.yml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
