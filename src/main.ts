@@ -79,12 +79,23 @@ async function update() {
 }
 
 const addLeafButton = document.getElementById('addLeaf')!;
-addLeafButton.addEventListener('click', async () => {
-  const input = document.getElementById('dataInput') as HTMLInputElement;
+const input = document.getElementById('dataInput') as HTMLInputElement;
+
+async function addLeaf() {
   if (input.value.trim()) {
     leaves.push(input.value.trim());
     input.value = '';
     await update();
+  }
+}
+
+// Handle button click
+addLeafButton.addEventListener('click', addLeaf);
+
+// Handle Enter key press
+input.addEventListener('keypress', async (e) => {
+  if (e.key === 'Enter') {
+    await addLeaf();
   }
 });
 
