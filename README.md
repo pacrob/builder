@@ -16,4 +16,5 @@ It is built with TypeScript and D3, using Vite for local development.
 3. Open your browser at `http://localhost:5173` (default Vite port).
 
 Use the input box to add new leaves to the Merkle tree. The tree will update
-and show the resulting hashes.
+and show the resulting hashes. Styling is defined in `style.css` and can be
+customized to change the appearance of the page.
