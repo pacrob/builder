@@ -1,9 +1,11 @@
+// @ts-check
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+// Using dynamic import for better compatibility
+export default defineConfig(async () => ({
   root: '.',
   build: {
     outDir: 'dist',
     emptyOutDir: true
   }
-});
+}));
