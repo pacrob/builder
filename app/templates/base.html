@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time Tracker</title>
+  <style>
+    body { font-family: sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    .flash { background: #fef3cd; border: 1px solid #ffc107; padding: .5rem 1rem;
+             border-radius: 4px; list-style: none; margin-bottom: 1rem; }
+    form label { display: block; margin-bottom: .5rem; }
+    input { margin-left: .5rem; }
+    button { margin-top: .5rem; }
+    nav { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class="flash">
+        {% for msg in messages %}<li>{{ msg }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</body>
+</html>
