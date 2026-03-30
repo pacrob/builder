@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<nav>
+  <strong>Time Tracker</strong> &mdash;
+  <a href="{{ url_for('auth.logout') }}">Log out</a>
+</nav>
+
+<h2>Log Time</h2>
+<form method="post" action="{{ url_for('entries.index') }}">
+  <label>Task <input type="text" name="task_name" required autofocus></label>
+  <label>Duration (minutes) <input type="number" name="duration_minutes" min="1" required></label>
+  <button type="submit">Add Entry</button>
+</form>
+
+<h2>Entries</h2>
+{% for day in days %}
+  <h3>{{ day.date }} &mdash; {{ day.total_hours }} hrs total</h3>
+  <ul>
+    {% for entry in day.entries %}
+      <li>{{ entry.task_name }} &mdash; {{ entry.duration_minutes }} min</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No entries yet.</p>
+{% endfor %}
+{% endblock %}
